@@ -41,6 +41,7 @@ public class MovieMain {
 
         ratePointViewer.setScanner(scanner);
         ratePointViewer.setRatePointController(ratePointController);
+        ratePointViewer.setUserController(userController);
 
         theaterViewer.setScanner(scanner);
         theaterViewer.setTheaterController(theaterController);

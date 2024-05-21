@@ -154,7 +154,10 @@ public class UserViewer {
                 System.out.println("잘못 입력하셨습니다.");
                 userChoice = nextInt(scanner, message);
             }
-            if (userChoice != 0) {
+            if (userChoice == 1) {
+                System.out.println("관리자 정보는 수정할 수 없습니다");
+            }
+            if (userChoice != 0 && userChoice != 1) {
                 printOne(userChoice);
             }
         }

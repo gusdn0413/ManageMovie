@@ -19,6 +19,10 @@ public class RatePointController {
         list.add(ratePointDTO);
     }
 
+    public void update(RatePointDTO ratePointDTO) {
+        list.set(list.indexOf(ratePointDTO), ratePointDTO);
+    }
+
     public ArrayList<RatePointDTO> selectAllByMovieId(int movieId) {
         ArrayList<RatePointDTO> result = new ArrayList<>();
         for (RatePointDTO ratePointDTO : list) {
@@ -38,33 +42,18 @@ public class RatePointController {
         return null;
     }
 
-    public ArrayList<RatePointDTO> selectAllWithReview(int movieId) {
-        ArrayList<RatePointDTO> result = new ArrayList<>();
-        for (RatePointDTO ratePointDTO : list) {
-            if (ratePointDTO.getMovieId() == movieId &&
-                    ratePointDTO.getReview() != null &&
-                    !ratePointDTO.getReview().isEmpty()) {
-                result.add(ratePointDTO);
-            }
-        }
-        return result;
-    }
-
-    public ArrayList<RatePointDTO> selectAllWithoutReview(int movieId) {
-        ArrayList<RatePointDTO> result = new ArrayList<>();
-        for (RatePointDTO ratePointDTO : list) {
-            if (ratePointDTO.getMovieId() == movieId &&
-                    (ratePointDTO.getReview() == null ||
-                            ratePointDTO.getReview().isEmpty())) {
-                result.add(ratePointDTO);
-            }
-        }
-        return result;
-    }
-
     public boolean hasAlreadyRate(int userId, int movieId) {
         for (RatePointDTO ratePointDTO : list) {
             if (ratePointDTO.getUserId() == userId && ratePointDTO.getMovieId() == movieId) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean hasReview(int userId) {
+        for (RatePointDTO ratePointDTO : list) {
+            if (ratePointDTO.getUserId() == userId && ratePointDTO.getReview() != null) {
                 return true;
             }
         }
@@ -83,32 +72,12 @@ public class RatePointController {
         return count == 0 ? 0 : (double) sum / count;
     }
 
-    public double pointExpertAverage(int movieId) {
-        int sum = 0;
-        int count = 0; // 특정 영화에 대한 평점 개수를 세는 변수 추가
+    public RatePointDTO selectOneByUserId(int userId, int movieId) {
         for (RatePointDTO ratePointDTO : list) {
-            if (ratePointDTO.getMovieId() == movieId &&
-                    ratePointDTO.getReview() != null &&
-                    !ratePointDTO.getReview().isEmpty()) {
-                sum += ratePointDTO.getPoint();
-                count++;
+            if (ratePointDTO.getUserId() == userId && ratePointDTO.getMovieId() == movieId) {
+                return ratePointDTO;
             }
         }
-        return count == 0 ? 0 : (double) sum / count;
-
-    }
-
-    public double pointUserAverage(int movieId) {
-        int sum = 0;
-        int count = 0;
-        for (RatePointDTO ratePointDTO : list) {
-            if (ratePointDTO.getMovieId() == movieId &&
-                    (ratePointDTO.getReview() == null ||
-                            ratePointDTO.getReview().isEmpty())) {
-                sum += ratePointDTO.getPoint();
-                count++;
-            }
-        }
-        return count == 0 ? 0 : (double) sum / count;
+        return null;
     }
 }

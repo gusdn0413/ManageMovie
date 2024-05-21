@@ -79,4 +79,24 @@ public class UserController {
             System.out.println("회원의 등급 : 관리자");
         }
     }
+
+    public ArrayList<UserDTO> selectOneGrade2() {
+        ArrayList<UserDTO> result = new ArrayList<>();
+        for (UserDTO userDTO : list) {
+            if (userDTO.getGrade() == 2) {
+                result.add(userDTO);
+            }
+        }
+        return result;
+    }
+
+    public ArrayList<UserDTO> selectOneGrade13() {
+        ArrayList<UserDTO> result = new ArrayList<>();
+        for (UserDTO userDTO : list) {
+            if (userDTO.getGrade() != 2) {
+                result.add(userDTO);
+            }
+        }
+        return result;
+    }
 }

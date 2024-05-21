@@ -4,7 +4,7 @@ import controller.MovieController;
 import lombok.Setter;
 import model.MovieDTO;
 import model.UserDTO;
-import util.ScannerUtil;
+
 
 import java.util.ArrayList;
 import java.util.Scanner;

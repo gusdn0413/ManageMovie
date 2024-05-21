@@ -1,6 +1,7 @@
 package viewer;
 
 import controller.RatePointController;
+import controller.UserController;
 import lombok.Setter;
 import model.RatePointDTO;
 import model.UserDTO;
@@ -16,6 +17,8 @@ public class RatePointViewer {
     private Scanner scanner;
     @Setter
     private RatePointController ratePointController;
+    @Setter
+    private UserController userController;
     @Setter
     private UserDTO logIn;
 
@@ -37,6 +40,13 @@ public class RatePointViewer {
     private void register(int movieId) {
         if (ratePointController.hasAlreadyRate(logIn.getId(), movieId)) {
             System.out.println("이미 평점을 등록하셨습니다");
+            if (!ratePointController.hasReview(logIn.getId())) {
+                String message = "아직 평론을 작성하지 않으셨습니다 평론을 등록해주세요";
+                String review = nextLine(scanner, message);
+                RatePointDTO ratePointDTO = ratePointController.selectOneByUserId(logIn.getId(), movieId);
+                ratePointDTO.setReview(review);
+                ratePointController.update(ratePointDTO);
+            }
         } else {
             String message = "평점을 등록해주세요";
             int ratePoint = nextInt(scanner, message, 1, 10);
@@ -99,27 +109,47 @@ public class RatePointViewer {
     }
 
     private void printExpertRateList(int movieId) {
-        ArrayList<RatePointDTO> list = ratePointController.selectAllWithReview(movieId);
-        for (RatePointDTO ratePointDTO : list) {
-            System.out.println("평론가 평점 : " + ratePointDTO.getPoint());
-            System.out.println("평론 : " + ratePointDTO.getReview());
-            System.out.println("===========================");
+        double total = 0;
+        int count = 0;
+        ArrayList<UserDTO> list = userController.selectOneGrade2();
+        for (UserDTO userDTO : list) {
+            RatePointDTO ratePointDTO = ratePointController.selectOneByUserId(userDTO.getId(), movieId);
+            if (ratePointDTO != null) {
+                System.out.println("평론가 평점 : " + ratePointDTO.getPoint());
+                System.out.println("평론 : " + ratePointDTO.getReview());
+                System.out.println("==============================");
+                total =total+ ratePointDTO.getPoint();
+                count++;
+            }
         }
-        System.out.println("평점 평균 : " + ratePointController.pointExpertAverage(movieId));
-        if (list.isEmpty()) {
-            System.out.println("평론가 평점이 없습니다");
+        if (count > 0) {
+            double avg = total / 3.0;
+            System.out.println("평점 평균 : " + avg);
+            System.out.println("평점 개수 : " + count);
+        } else {
+            System.out.println("평론가 평점이 없습니다.");
         }
     }
 
     private void printUserRateList(int movieId) {
-        ArrayList<RatePointDTO> list = ratePointController.selectAllWithoutReview(movieId);
-        for (RatePointDTO ratePointDTO : list) {
-            System.out.println("일반 회원 평점 : " + ratePointDTO.getPoint());
-            System.out.println("===========================");
+        double total = 0;
+        int count = 0;
+        ArrayList<UserDTO> list = userController.selectOneGrade13();
+        for (UserDTO userDTO : list) {
+            RatePointDTO ratePointDTO = ratePointController.selectOneByUserId(userDTO.getId(), movieId);
+            if (ratePointDTO != null) {
+                System.out.println("일반 회원 평점 : " + ratePointDTO.getPoint());
+                System.out.println("==============================");
+                total =total+ ratePointDTO.getPoint();
+                count++;
+            }
         }
-        System.out.println("평점 평균 : " + ratePointController.pointUserAverage(movieId));
-        if (list.isEmpty()) {
-            System.out.println("일반 회원 평점이 없습니다");
+        if (count > 0) {
+            double avg = total / 3.0;
+            System.out.println("평점 평균 : " + avg);
+            System.out.println("평점 개수 : " + count);
+        } else {
+            System.out.println("일반회원 평점이 없습니다.");
         }
     }
 }
