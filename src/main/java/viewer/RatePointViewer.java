@@ -118,17 +118,11 @@ public class RatePointViewer {
                 System.out.println("평론가 평점 : " + ratePointDTO.getPoint());
                 System.out.println("평론 : " + ratePointDTO.getReview());
                 System.out.println("==============================");
-                total =total+ ratePointDTO.getPoint();
+                total = total + ratePointDTO.getPoint();
                 count++;
             }
         }
-        if (count > 0) {
-            double avg = total / 3.0;
-            System.out.println("평점 평균 : " + avg);
-            System.out.println("평점 개수 : " + count);
-        } else {
-            System.out.println("평론가 평점이 없습니다.");
-        }
+        printAverage(count, total, "평론가 평점이 없습니다.");
     }
 
     private void printUserRateList(int movieId) {
@@ -140,16 +134,20 @@ public class RatePointViewer {
             if (ratePointDTO != null) {
                 System.out.println("일반 회원 평점 : " + ratePointDTO.getPoint());
                 System.out.println("==============================");
-                total =total+ ratePointDTO.getPoint();
+                total = total + ratePointDTO.getPoint();
                 count++;
             }
         }
+        printAverage(count, total, "일반회원 평점이 없습니다.");
+    }
+
+    private static void printAverage(int count, double total, String answer) {
         if (count > 0) {
             double avg = total / 3.0;
             System.out.println("평점 평균 : " + avg);
             System.out.println("평점 개수 : " + count);
         } else {
-            System.out.println("일반회원 평점이 없습니다.");
+            System.out.println(answer);
         }
     }
 }
