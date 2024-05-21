@@ -3,7 +3,6 @@ package viewer;
 import controller.UserController;
 import lombok.Setter;
 import model.UserDTO;
-import util.ScannerUtil;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -84,7 +83,7 @@ public class UserViewer {
             movieViewer.setLogIn(logIn);
             if (logIn.getGrade() == 3) {
                 System.out.println("==========관리자입니다===========");
-                String message = "1. 영화로 2. 회원 정보 수정 3. 특정 회원 정보 수정 4. 로그 아웃";
+                String message = "1. 영화 및 극장 2. 회원 정보 수정 3. 특정 회원 정보 수정 4. 로그 아웃";
                 int userChoice = nextInt(scanner, message);
                 if (userChoice == 1) {
                     // 영화 목록 보기

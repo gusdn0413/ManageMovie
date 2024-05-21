@@ -48,7 +48,7 @@ public class RatePointViewer {
                 ratePointController.update(ratePointDTO);
             }
         } else {
-            String message = "평점을 등록해주세요";
+            String message = "평점을 등록해주세요 (1~10)";
             int ratePoint = nextInt(scanner, message, 1, 10);
             RatePointDTO ratePointDTO = new RatePointDTO();
             ratePointDTO.setPoint(ratePoint);
