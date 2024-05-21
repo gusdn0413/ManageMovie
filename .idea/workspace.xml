@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4f2b78d-57c1-4466-a4ee-135ac4e45391" name="변경" comment="05.21">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/RatePointController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/RatePointController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/MovieMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/MovieMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/viewer/MovieViewer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viewer/MovieViewer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/viewer/RatePointViewer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viewer/RatePointViewer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/viewer/UserViewer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viewer/UserViewer.java" afterDir="false" />
-    </list>
+    <list default="true" id="f4f2b78d-57c1-4466-a4ee-135ac4e45391" name="변경" comment="05.21" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -109,7 +101,7 @@
       <option name="presentableId" value="Default" />
       <updated>1716165667162</updated>
       <workItem from="1716165668159" duration="32581000" />
-      <workItem from="1716251561120" duration="7180000" />
+      <workItem from="1716251561120" duration="7464000" />
     </task>
     <task id="LOCAL-00001" summary="05.21">
       <option name="closed" value="true" />
@@ -119,7 +111,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716251572282</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="05.21">
+      <option name="closed" value="true" />
+      <created>1716259570750</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1716259570750</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
