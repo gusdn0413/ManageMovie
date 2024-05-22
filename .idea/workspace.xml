@@ -6,6 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="f4f2b78d-57c1-4466-a4ee-135ac4e45391" name="변경" comment="05.21">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/RatePointController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/RatePointController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/MovieDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/MovieDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/viewer/RatePointViewer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viewer/RatePointViewer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/viewer/UserViewer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viewer/UserViewer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -109,6 +112,10 @@
       <workItem from="1716263719638" duration="867000" />
       <workItem from="1716270357898" duration="205000" />
       <workItem from="1716276532399" duration="1160000" />
+      <workItem from="1716279329120" duration="6015000" />
+      <workItem from="1716286979597" duration="960000" />
+      <workItem from="1716340149855" duration="104000" />
+      <workItem from="1716340718462" duration="42000" />
     </task>
     <task id="LOCAL-00001" summary="05.21">
       <option name="closed" value="true" />
@@ -142,7 +149,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716270558383</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="05.21">
+      <option name="closed" value="true" />
+      <created>1716280242198</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1716280242198</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -151,87 +166,6 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="05.21" />
     <option name="LAST_COMMIT_MESSAGE" value="05.21" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/viewer/TheaterViewer.java</url>
-          <line>69</line>
-          <option name="timeStamp" value="52" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/viewer/TheaterViewer.java</url>
-          <line>91</line>
-          <option name="timeStamp" value="56" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/viewer/TheaterViewer.java</url>
-          <line>80</line>
-          <option name="timeStamp" value="57" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/viewer/TheaterViewer.java</url>
-          <line>70</line>
-          <option name="timeStamp" value="58" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/viewer/TheaterViewer.java</url>
-          <line>92</line>
-          <option name="timeStamp" value="59" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/viewer/TheaterViewer.java</url>
-          <line>93</line>
-          <option name="timeStamp" value="60" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/viewer/TheaterViewer.java</url>
-          <line>94</line>
-          <option name="timeStamp" value="61" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/viewer/TheaterViewer.java</url>
-          <line>95</line>
-          <option name="timeStamp" value="62" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/controller/TheaterController.java</url>
-          <line>26</line>
-          <option name="timeStamp" value="63" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/controller/TheaterController.java</url>
-          <line>27</line>
-          <option name="timeStamp" value="64" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/controller/TheaterController.java</url>
-          <line>28</line>
-          <option name="timeStamp" value="65" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/viewer/TheaterViewer.java</url>
-          <line>65</line>
-          <option name="timeStamp" value="66" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/controller/TheaterController.java</url>
-          <line>17</line>
-          <option name="timeStamp" value="67" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/controller/TheaterController.java</url>
-          <line>18</line>
-          <option name="timeStamp" value="69" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/viewer/RatePointViewer.java</url>
-          <line>76</line>
-          <option name="timeStamp" value="103" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -3,6 +3,7 @@ package controller;
 import model.RatePointDTO;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class RatePointController {
 
@@ -60,18 +61,6 @@ public class RatePointController {
         return false;
     }
 
-    public double pointAverage(int movieId) {
-        int sum = 0;
-        int count = 0;
-        for (RatePointDTO r : list) {
-            if (r.getMovieId() == movieId) {
-                sum += r.getPoint();
-                count++;
-            }
-        }
-        return count == 0 ? 0 : (double) sum / count;
-    }
-
     public RatePointDTO selectOneByUserId(int userId, int movieId) {
         for (RatePointDTO ratePointDTO : list) {
             if (ratePointDTO.getUserId() == userId && ratePointDTO.getMovieId() == movieId) {
@@ -79,5 +68,15 @@ public class RatePointController {
             }
         }
         return null;
+    }
+
+    public void delete(int movieId,int userId) {
+        Iterator<RatePointDTO> iterator = list.iterator();
+        while (iterator.hasNext()) {
+            RatePointDTO ratePointDTO = iterator.next();
+            if (ratePointDTO.getMovieId() == movieId && ratePointDTO.getUserId() == userId) {
+                iterator.remove();
+            }
+        }
     }
 }

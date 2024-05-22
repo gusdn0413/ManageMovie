@@ -8,7 +8,7 @@ public class MovieDTO {
     private int id;
     private String title;
     private String content;
-    private String  grade;
+    private String grade; // 1 일반 2 평론가 3 관리자
 
     @Override
     public boolean equals(Object o) {

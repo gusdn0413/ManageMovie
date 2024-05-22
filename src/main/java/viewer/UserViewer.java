@@ -27,7 +27,6 @@ public class UserViewer {
             if (userChoice == 1) {
                 auth();
                 if (logIn != null) {
-                    // 회원 메뉴 실행
                     showMenu();
                 }
             } else if (userChoice == 2) {
@@ -98,7 +97,7 @@ public class UserViewer {
                     break;
                 }
             } else {
-                String message = "1. 영화로 2. 회원 정보 수정 3. 로그 아웃";
+                String message = "1. 영화 및 극장 2. 회원 정보 수정 3. 로그 아웃";
                 int userChoice = nextInt(scanner, message);
                 if (userChoice == 1) {
                     movieViewer.showIndex();
@@ -141,7 +140,7 @@ public class UserViewer {
             System.out.println("===============================");
             System.out.println("회원 id : " + userDTO.getId());
             System.out.println("회원 닉네임 : " + userDTO.getNickname());
-            userController.showGrade(userDTO);
+            showGrade(userDTO);
             System.out.println("===============================");
         }
         if (list.isEmpty()) {
@@ -167,7 +166,7 @@ public class UserViewer {
         System.out.println("============================");
         System.out.println("회원의 id : " + userDTO.getId());
         System.out.println("회원의 닉네임 : " + userDTO.getNickname());
-        userController.showGrade(userDTO);
+        showGrade(userDTO);
 
         String message = "1. 등급 수정 2. 탈퇴 3. 뒤로가기";
         int userChoice = nextInt(scanner, message, 1, 3);
@@ -175,6 +174,7 @@ public class UserViewer {
             message = "1. 일반 회원으로 2. 전문 평론가로 3. 관리자로";
             int newGrade = nextInt(scanner, message, 1, 3);
             userDTO.setGrade(newGrade);
+            userController.update(userDTO);
         }
         if (userChoice == 2) {
             message = "정말이 회원을 삭제하시겠습니까? Y/N";
@@ -221,6 +221,15 @@ public class UserViewer {
                 userController.delete(logIn.getId());
                 logIn = null;
             }
+        }
+    }
+    private void showGrade(UserDTO userDTO) {
+        if (userDTO.getGrade() == 1) {
+            System.out.println("회원의 등급 : 일반 관람객");
+        } else if (userDTO.getGrade() == 2) {
+            System.out.println("회원의 등급 : 전문 평론가");
+        } else if (userDTO.getGrade() == 3) {
+            System.out.println("회원의 등급 : 관리자");
         }
     }
 }

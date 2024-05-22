@@ -70,16 +70,6 @@ public class UserController {
         return list.contains(userDTO);
     }
 
-    public void showGrade(UserDTO userDTO) {
-        if (userDTO.getGrade() == 1) {
-            System.out.println("회원의 등급 : 일반 관람객");
-        } else if (userDTO.getGrade() == 2) {
-            System.out.println("회원의 등급 : 전문 평론가");
-        } else if (userDTO.getGrade() == 3) {
-            System.out.println("회원의 등급 : 관리자");
-        }
-    }
-
     public ArrayList<UserDTO> selectOneGrade2() {
         ArrayList<UserDTO> result = new ArrayList<>();
         for (UserDTO userDTO : list) {

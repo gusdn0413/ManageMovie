@@ -92,20 +92,36 @@ public class RatePointViewer {
                 System.out.println("나의 평론 : " + ratePointDTO.getReview());
             }
         }
+        while (true) {
+            String message = "1. 평점 수정 2. 평점 삭제 3. 돌아가기";
+            int userChoice = nextInt(scanner, message,1,3);
+            if (userChoice == 1) {
+                update(movieId);
+                break;
+            } else if (userChoice == 2) {
+                delete(movieId);
+                break;
+            } else if (userChoice == 3) {
+                System.out.println("돌아갑니다");
+                break;
+            }
+        }
     }
 
     private void printList(int movieId) {
 
+        int count = 0;
+        int total = 0;
         ArrayList<RatePointDTO> list = ratePointController.selectAllByMovieId(movieId);
         for (RatePointDTO ratePointDTO : list) {
-
-            System.out.println("평점 : " + ratePointDTO.getPoint());
-            System.out.println("===========================");
+            if (ratePointDTO != null) {
+                System.out.println("평점 : " + ratePointDTO.getPoint());
+                System.out.println("===========================");
+                total = total + ratePointDTO.getPoint();
+                count++;
+            }
         }
-        System.out.println("평점 평균 : " + ratePointController.pointAverage(movieId));
-        if (list.isEmpty()) {
-            System.out.println("등록된 평점이 없습니다");
-        }
+        printAverage(count, total, "평점이 없습니다");
     }
 
     private void printExpertRateList(int movieId) {
@@ -143,11 +159,47 @@ public class RatePointViewer {
 
     private static void printAverage(int count, double total, String answer) {
         if (count > 0) {
-            double avg = total / 3.0;
+            double avg = total / count;
             System.out.println("평점 평균 : " + avg);
             System.out.println("평점 개수 : " + count);
         } else {
             System.out.println(answer);
+        }
+    }
+
+    private void update(int movieId) {
+        String message = "평점을 입력해주세요 (1~10)";
+        int newPoint = nextInt(scanner, message, 1, 10);
+        RatePointDTO ratePointDTO = ratePointController.selectOneByUserId(logIn.getId(), movieId);
+        ratePointDTO.setPoint(newPoint);
+        if (logIn.getGrade() == 2) {
+            message = "평론을 입력해주세요";
+            String newReview = nextLine(scanner, message);
+            ratePointDTO.setReview(newReview);
+        }
+        ratePointController.update(ratePointDTO);
+        System.out.println("수정이 완료되었습니다");
+    }
+
+    private void delete(int movieId) {
+        if (ratePointController.selectOneByUserId(logIn.getId(), movieId) == null) {
+            System.out.println("평점이 없습니다");
+        } else {
+
+            String message = "평점을 삭제하시겠습니까? Y/N";
+            String answer = nextLine(scanner, message);
+            if (answer.equalsIgnoreCase("Y")) {
+                message = "비밀번호를 입력해주세요";
+                String password = nextLine(scanner, message);
+                if (password.equalsIgnoreCase(logIn.getPassword())) {
+                    ratePointController.delete(movieId, logIn.getId());
+                    System.out.println("삭제를 성공했습니다");
+                } else {
+                    System.out.println("비밀번호가 틀렸습니다");
+                }
+            } else {
+                System.out.println("삭제를 취소합니다");
+            }
         }
     }
 }
