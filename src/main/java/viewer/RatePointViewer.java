@@ -89,7 +89,11 @@ public class RatePointViewer {
         } else if (ratePointDTO.getUserId() == logIn.getId()) {
             System.out.println("나의 평점 : " + ratePointDTO.getPoint());
             if (logIn.getGrade() == 2) {
-                System.out.println("나의 평론 : " + ratePointDTO.getReview());
+                if (ratePointDTO.getReview() == null) {
+                    System.out.println("평론을 등록하지 않았습니다.");
+                } else {
+                    System.out.println("나의 평론 : " + ratePointDTO.getReview());
+                }
             }
         }
         while (true) {
@@ -132,8 +136,13 @@ public class RatePointViewer {
             RatePointDTO ratePointDTO = ratePointController.selectOneByUserId(userDTO.getId(), movieId);
             if (ratePointDTO != null) {
                 System.out.println("평론가 평점 : " + ratePointDTO.getPoint());
-                System.out.println("평론 : " + ratePointDTO.getReview());
-                System.out.println("==============================");
+                if (ratePointDTO.getReview() == null) {
+                    System.out.println("평론 : 평론이 없습니다");
+                    System.out.println("==============================");
+                } else {
+                    System.out.println("평론 : " + ratePointDTO.getReview());
+                    System.out.println("==============================");
+                }
                 total = total + ratePointDTO.getPoint();
                 count++;
             }

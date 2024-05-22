@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4f2b78d-57c1-4466-a4ee-135ac4e45391" name="변경" comment="05.21">
+    <list default="true" id="f4f2b78d-57c1-4466-a4ee-135ac4e45391" name="변경" comment="05.22">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/RatePointController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/RatePointController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/MovieDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/MovieDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/viewer/RatePointViewer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viewer/RatePointViewer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/viewer/UserViewer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/viewer/UserViewer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +59,7 @@
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;,
-    &quot;애플리케이션.MovieMain.executor&quot;: &quot;Debug&quot;
+    &quot;애플리케이션.MovieMain.executor&quot;: &quot;Run&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -116,6 +113,8 @@
       <workItem from="1716286979597" duration="960000" />
       <workItem from="1716340149855" duration="104000" />
       <workItem from="1716340718462" duration="42000" />
+      <workItem from="1716343734202" duration="183000" />
+      <workItem from="1716347628137" duration="1450000" />
     </task>
     <task id="LOCAL-00001" summary="05.21">
       <option name="closed" value="true" />
@@ -157,7 +156,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716280242198</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="05.22">
+      <option name="closed" value="true" />
+      <created>1716343913726</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1716343913726</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -165,7 +172,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="05.21" />
-    <option name="LAST_COMMIT_MESSAGE" value="05.21" />
+    <MESSAGE value="05.22" />
+    <option name="LAST_COMMIT_MESSAGE" value="05.22" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
