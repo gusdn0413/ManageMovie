@@ -55,9 +55,12 @@ public class UserController {
     }
 
     public UserDTO selectOne(int id) {
-        UserDTO userDTO = new UserDTO();
-        userDTO.setId(id);
-        return list.get(list.indexOf(userDTO));
+        for (UserDTO userDTO : list) {
+            if (userDTO.getId() == id) {
+                return userDTO;
+            }
+        }
+        return null;
     }
 
     public boolean validateInput(int input) {

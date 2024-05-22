@@ -24,9 +24,12 @@ public class TheaterController {
     }
 
     public TheaterDTO selectOne(int id) {
-        TheaterDTO theaterDTO = new TheaterDTO();
-        theaterDTO.setId(id);
-        return list.get(list.indexOf(theaterDTO));
+        for (TheaterDTO theaterDTO : list) {
+            if (theaterDTO.getId() == id) {
+                return theaterDTO;
+            }
+        }
+        return null;
     }
 
     public boolean validateInput(int input) {

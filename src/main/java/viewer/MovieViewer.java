@@ -24,7 +24,6 @@ public class MovieViewer {
     @Setter
     private TheaterViewer theaterViewer;
 
-
     public void showIndex() {
         ratePointViewer.setLogIn(logIn);
         theaterViewer.setLogIn(logIn);

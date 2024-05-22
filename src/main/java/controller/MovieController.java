@@ -36,9 +36,12 @@ public class MovieController {
     }
 
     public MovieDTO selectOne(int id) {
-        MovieDTO movieDTO = new MovieDTO();
-        movieDTO.setId(id);
-        return list.get(list.indexOf(movieDTO));
+        for (MovieDTO movieDTO : list) {
+            if (movieDTO.getId() == id) {
+                return movieDTO;
+            }
+        }
+        return null;
     }
 
     public boolean validateInput(int input) {

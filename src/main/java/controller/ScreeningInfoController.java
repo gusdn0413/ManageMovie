@@ -3,6 +3,7 @@ package controller;
 import model.ScreeningInfoDTO;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class ScreeningInfoController {
 
@@ -33,7 +34,32 @@ public class ScreeningInfoController {
         list.set(list.indexOf(screeningInfoDTO), screeningInfoDTO);
     }
 
-    public void delete(int theaterId) {
-        list.remove(theaterId);
+    public void delete(int id) {
+        Iterator<ScreeningInfoDTO> iterator = list.iterator();
+        while (iterator.hasNext()) {
+            ScreeningInfoDTO screeningInfoDTO = iterator.next();
+            if (screeningInfoDTO.getId() == id) {
+                iterator.remove();
+            }
+        }
     }
+
+    public ScreeningInfoDTO selectOne(int id) {
+        for (ScreeningInfoDTO screeningInfoDTO : list) {
+            if (screeningInfoDTO.getId() == id) {
+                return screeningInfoDTO;
+            }
+        }
+        return null;
+    }
+
+    public boolean validateInput(int input) {
+        if (input == 0) {
+            return true;
+        }
+        ScreeningInfoDTO screeningInfoDTO = new ScreeningInfoDTO();
+        screeningInfoDTO.setId(input);
+        return list.contains(screeningInfoDTO);
+    }
+
 }
