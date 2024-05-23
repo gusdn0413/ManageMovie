@@ -1,7 +1,6 @@
 package main;
 
 import controller.*;
-import model.RatePointDTO;
 import model.UserDTO;
 import viewer.*;
 

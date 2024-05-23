@@ -60,6 +60,7 @@ public class RatePointViewer {
                 ratePointDTO.setReview(review);
             }
             ratePointController.insert(ratePointDTO);
+            System.out.println("등록되었습니다");
         }
     }
 
@@ -95,19 +96,20 @@ public class RatePointViewer {
                     System.out.println("나의 평론 : " + ratePointDTO.getReview());
                 }
             }
-        }
-        while (true) {
-            String message = "1. 평점 수정 2. 평점 삭제 3. 돌아가기";
-            int userChoice = nextInt(scanner, message,1,3);
-            if (userChoice == 1) {
-                update(movieId);
-                break;
-            } else if (userChoice == 2) {
-                delete(movieId);
-                break;
-            } else if (userChoice == 3) {
-                System.out.println("돌아갑니다");
-                break;
+        } else {
+            while (true) {
+                String message = "1. 평점 수정 2. 평점 삭제 3. 돌아가기";
+                int userChoice = nextInt(scanner, message,1,3);
+                if (userChoice == 1) {
+                    update(movieId);
+                    break;
+                } else if (userChoice == 2) {
+                    delete(movieId);
+                    break;
+                } else if (userChoice == 3) {
+                    System.out.println("돌아갑니다");
+                    break;
+                }
             }
         }
     }

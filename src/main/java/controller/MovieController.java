@@ -4,6 +4,7 @@ import model.MovieDTO;
 
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class MovieController {
 
@@ -25,10 +26,13 @@ public class MovieController {
     }
 
     public void delete(int id) {
-        MovieDTO movieDTO = new MovieDTO();
-        movieDTO.setId(id);
-
-        list.remove(movieDTO);
+        Iterator<MovieDTO> iterator = list.iterator();
+        while (iterator.hasNext()) {
+            MovieDTO movieDTO = iterator.next();
+            if (movieDTO.getId() == id) {
+                iterator.remove();
+            }
+        }
     }
 
     public ArrayList<MovieDTO> selectAll() {

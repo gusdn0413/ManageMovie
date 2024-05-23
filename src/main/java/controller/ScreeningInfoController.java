@@ -52,14 +52,4 @@ public class ScreeningInfoController {
         }
         return null;
     }
-
-    public boolean validateInput(int input) {
-        if (input == 0) {
-            return true;
-        }
-        ScreeningInfoDTO screeningInfoDTO = new ScreeningInfoDTO();
-        screeningInfoDTO.setId(input);
-        return list.contains(screeningInfoDTO);
-    }
-
 }

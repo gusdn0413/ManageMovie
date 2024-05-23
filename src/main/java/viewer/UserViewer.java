@@ -36,7 +36,6 @@ public class UserViewer {
                 break;
             }
         }
-
     }
 
     private void auth() {

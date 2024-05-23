@@ -130,7 +130,6 @@ public class MovieViewer {
                 System.out.println("돌아갑니다.");
             }
         }
-
     }
 
     private void update(int movieId) {
@@ -168,7 +167,6 @@ public class MovieViewer {
             }
         } else {
             System.out.println("비밀번호가 틀렸습니다");
-
         }
     }
 }

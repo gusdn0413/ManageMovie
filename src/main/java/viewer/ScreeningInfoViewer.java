@@ -40,7 +40,6 @@ public class ScreeningInfoViewer {
             } else {
                 printList(theaterId);
                 break;
-
             }
         }
     }
@@ -49,7 +48,7 @@ public class ScreeningInfoViewer {
         System.out.println("극장 번호 : " + theaterId);
         String message = "영화 번호 : ";
         int movieId = nextInt(scanner, message);
-        MovieDTO movieDTO = movieController.selectOne(movieId);
+        MovieDTO movieDTO = getMovieDTOByScreeningInfo(movieId);
         if (movieDTO == null) {
             System.out.println("해당 번호의 영화가 없습니다.");
         } else {
@@ -62,8 +61,8 @@ public class ScreeningInfoViewer {
             screeningInfoDTO.setScreenTime(screenTime);
 
             screeningInfoController.insert(screeningInfoDTO);
+            System.out.println("등록되었습니다");
         }
-
     }
 
     private void printList(int theaterId) {
@@ -71,7 +70,7 @@ public class ScreeningInfoViewer {
         ArrayList<ScreeningInfoDTO> list = screeningInfoController.selectAllByTheaterId(theaterId);
         for (ScreeningInfoDTO screeningInfoDTO : list) {
             if (screeningInfoDTO != null) {
-                MovieDTO movieDTO = movieController.selectOne(screeningInfoDTO.getMovieId());
+                MovieDTO movieDTO = getMovieDTOByScreeningInfo(screeningInfoDTO.getMovieId());
                 if (movieDTO == null) {
                     loop = false;
                 } else {
@@ -86,14 +85,18 @@ public class ScreeningInfoViewer {
         }
         if (loop) {
             if (logIn.getGrade() == 3) {
-                String message = "상영정보를 수정하시려면 상영정보의 번호를 누르시고 뒤로가시려면 0을 눌러주세요";
+                String message = "상영정보를 수정하시려면 상영정보의 번호를 누르시고 뒤로가시려면 아무 숫자나 눌러주세요";
                 int userChoice = nextInt(scanner, message);
-                while (!screeningInfoController.validateInput(userChoice)) {
-                    System.out.println("잘못 입력하셨습니다.");
-                    userChoice = nextInt(scanner, message);
-                }
-                if (userChoice != 0) {
-                    printOne(userChoice);
+                ScreeningInfoDTO screeningInfoDTO = screeningInfoController.selectOne(userChoice);
+                if (screeningInfoDTO != null) {
+                    MovieDTO movieDTO = getMovieDTOByScreeningInfo(screeningInfoDTO.getMovieId());
+                    if (movieDTO != null && userChoice != 0 && screeningInfoDTO.getTheaterId() == theaterId) {
+                        printOne(userChoice);
+                    } else {
+                        System.out.println("뒤로갑니다");
+                    }
+                } else {
+                    System.out.println("뒤로갑니다");
                 }
             }
         } else {
@@ -143,5 +146,9 @@ public class ScreeningInfoViewer {
         } else {
             System.out.println("비밀번호가 틀렸습니다");
         }
+    }
+
+    private MovieDTO getMovieDTOByScreeningInfo(int screenId) {
+        return movieController.selectOne(screenId);
     }
 }
